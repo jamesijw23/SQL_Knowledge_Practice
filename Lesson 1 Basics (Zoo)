@@ -1,0 +1,9 @@
+-- SQL Basics 
+
+
+
+-- world (Table Design): name | continent| area | population |	gdp
+-- Problem 1: Show the population of Germany (WHERE Clause)
+SELECT population 
+FROM world
+WHERE name = 'Germany'
