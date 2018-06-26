@@ -1,0 +1,42 @@
+-- SQL Using NULL 
+
+-- Teacher (Table Design):id | dept |	name |	phone |	mobile
+-- Dept (Table Design): id | name
+-- ** Questions **
+
+-- Problem 1: List the teachers who have NULL for their department. (WHERE Clause)
+SELECT name
+FROM teacher
+WHERE dept IS NULL;
+
+-- Problem 2: Join teacher and department tables based on department ids. (WHERE & JOIN Clause)
+SELECT t.name, d.name
+FROM teacher t
+INNER JOIN dept d
+ON t.dept=d.id;
+-- **Note the INNER JOIN misses the teachers with no department and the departments with no teacher. 
+
+-- Problem 3: Use a different JOIN so that all teachers are listed. (WHERE Clause)
+SELECT t.name, d.name
+FROM teacher t
+LEFT JOIN dept d
+ON t.dept=d.id;
+
+-- Problem 4: Use a different JOIN so that all departments are listed. (WHERE Clause)
+SELECT t.name, d.name
+FROM  dept d
+LEFT JOIN teacher t
+ON t.dept=d.id;
+
+-- Problem 5: (WHERE Clause)
+
+-- Problem 6: (WHERE Clause)
+
+-- Problem 7: (WHERE Clause)
+
+-- Problem 8: (WHERE Clause)
+
+-- Problem 9: (WHERE Clause)
+
+-- Problem 10: (WHERE Clause)
+
