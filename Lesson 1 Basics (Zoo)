@@ -7,3 +7,9 @@
 SELECT population 
 FROM world
 WHERE name = 'Germany'
+
+
+-- Problem 2: Show the name and the population for 'Sweden', 'Norway' and 'Denmark' (WHERE Clause, multiple)
+SELECT name, population 
+FROM world
+WHERE name IN ('Sweden', 'Norway','Denmark');
