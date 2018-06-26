@@ -1,1 +1,97 @@
-d
+-- SQL Basics 
+-- world (Table Design): name | continent| area | population |	gdp
+
+-- ** Questions **
+
+-- Problem 1: Show the name, continent and population of all countries. (SELECT & FROM)
+SELECT name, continent, population 
+FROM world;
+
+-- Problem 2: Show the name for the countries that have a population of at least 200 million. 200 million is 200000000, 
+-- there are eight zeros. (WHERE)
+SELECT name 
+FROM world
+WHERE population > 200000000;
+
+-- Problem 3: Show the name and the per capita GDP for those countries with a population 
+-- of at least 200 million. (WHERE)
+SELECT name, gdp/population
+FROM world
+WHERE population > 200000000;
+
+-- Problem 4: Show the name and population in millions for the countries of the continent 
+-- 'South America'. Divide the population by 1000000 to get population in millions.(WHERE)
+SELECT name, population/1000000
+FROM world
+WHERE continent IN 'South America';
+
+-- Problem 5: Show the name and population for France, Germany, Italy (WHERE & IN)
+SELECT name, population
+FROM world
+WHERE name IN ('Germany','Italy','France');
+
+-- Problem 6: Show the countries which have a name that includes the word 'United' (LIKE '% %')
+SELECT name 
+FROM world
+WHERE name LIKE '%United%';
+
+-- Problem 7: Show the countries that are big by area or big by population. Show name, population 
+-- and area. (WHERE)
+SELECT name, population, area
+FROM world
+WHERE area > 3000000 OR population > 250000000;
+
+-- Problem 8: Show the countries that are big by area or big by population but not both. 
+-- Show name, population and area.(WHERE & XOR)
+SELECT name, population, area
+FROM world
+WHERE area > 3000000 XOR population > 250000000;
+
+-- Problem 9:For South America show population in millions and GDP in billions both to 2 decimal places. (ROUND)
+SELECT name, ROUND(population/1000000,2), ROUND(gdp/1000000000,2)
+FROM world
+WHERE continent LIKE 'South America';
+
+
+-- Problem 10: Show per-capita GDP for the trillion dollar countries to the nearest $1000. (ROUND)
+SELECT name, ROUND(gdp/population,-3)
+FROM world
+WHERE gdp >= 1000000000000;
+
+-- Problem 11: Show the name and capital where the name and the capital have the same number of characters. (LENGTH)
+SELECT name, capital
+FROM world
+WHERE LENGTH(name) = LENGTH(capital);
+
+-- Problem 12: Show the name and the capital where the first letters of each match. 
+-- Don't include countries where the name and the capital are the same word. (LEFT & <>)
+SELECT name, capital
+FROM world
+WHERE LEFT(name,1) = LEFT(capital,1) AND name <> capital
+
+-- Problem 13: Find the country that has all the vowels and no spaces in its name. (NOT LIKE)
+SELECT name
+FROM world
+WHERE name LIKE '%a%' 
+AND name NOT LIKE '% %'
+AND name LIKE '%e%'
+AND name LIKE '%i%'
+AND name LIKE '%o%'
+AND name LIKE '%u%'
+
+-- ** Quiz **
+-- Question 1: 
+
+-- Question 2:
+
+-- Question 3: 
+
+-- Question 4:
+
+-- Question 5: 
+
+-- Question 6: 
+
+-- Question 7: 
+
+
