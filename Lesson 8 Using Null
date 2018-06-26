@@ -68,7 +68,10 @@ FROM teacher;
 
 -- Problem 2: (CASE Clause)
 SELECT dept.name 
-FROM teacher JOIN dept ON (dept.id = teacher.dept) WHERE teacher.name = 'Cutflower'
+FROM teacher t 
+JOIN dept d
+ON d.id = t.dept
+WHERE t.name = 'Cutflower'
 
 -- Problem 3: Show a list of all the departments and number of employed teachers  (RIGHT JOIN & COUNT Clause)
  SELECT d.name, COUNT(t.name) 
