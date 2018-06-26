@@ -76,7 +76,7 @@ JOIN dept d
 ON d.id = t.dept
 WHERE t.name = 'Cutflower'
 
--- Problem 3: Show a list of all the departments and number of employed teachers  (RIGHT JOIN & COUNT Clause)
+-- Problem 3: Show a list of all the departments and number of employed teachers  (RIGHT JOIN, COUNT & GROUP BY Clause)
  SELECT d.name, COUNT(t.name) 
  FROM teacher t
  RIGHT JOIN dept d 
