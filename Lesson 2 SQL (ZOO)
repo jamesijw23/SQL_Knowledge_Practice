@@ -80,18 +80,40 @@ AND name LIKE '%o%'
 AND name LIKE '%u%'
 
 -- ** Quiz **
--- Question 1: 
+-- Question 1: Find the countries that start with a U.
+SELECT name
+FROM world
+WHERE name LIKE 'U%';
+ 
+-- Question 2: Show the population for'United Kingdom'.
+SELECT population
+FROM world
+WHERE name = 'United Kingdom';
+ 
+-- Question 3: Show the continent for 'France'.
+SELECT continent 
+FROM world 
+WHERE name = 'France';
+ 
+-- Question 4: Show the country and population divided by 10 where population is less than 10000.
+SELECT name, population / 10 
+FROM world 
+WHERE population < 10000;
+ 
+-- Question 5: Show the countries and populations where the continent in Europe and Asia.
+SELECT name, population
+FROM world
+WHERE continent IN ('Europe', 'Asia')
 
--- Question 2:
+-- Question 6: Show the countries for Cuba and Togo.
+SELECT name 
+FROM world
+WHERE name IN ('Cuba', 'Togo')
+ 
 
--- Question 3: 
-
--- Question 4:
-
--- Question 5: 
-
--- Question 6: 
-
--- Question 7: 
-
+-- Question 7: Show the countries in South America where the population is greater than 40000000.
+SELECT name 
+FROM world
+WHERE continent = 'South America'
+AND population > 40000000
 
