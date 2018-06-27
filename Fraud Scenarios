@@ -1,0 +1,4 @@
+-- How many frauds occurred last month?
+-- What is the definition of fraud? IP_address is not the same as previous purchase
+-- Table called transactions: member_id | trans_number | amount | IP_address | card_type
+
