@@ -3,29 +3,29 @@
 
 -- ** Questions **
 
--- Problem 1: Show the name, continent and population of all countries. (SELECT & FROM)
+-- Problem 1: Show the name, continent and population of all countries. (SELECT & FROM Clause)
 SELECT name, continent, population 
 FROM world;
 
 -- Problem 2: Show the name for the countries that have a population of at least 200 million. 200 million is 200000000, 
--- there are eight zeros. (WHERE)
+-- there are eight zeros. (WHERE Clause)
 SELECT name 
 FROM world
 WHERE population > 200000000;
 
 -- Problem 3: Show the name and the per capita GDP for those countries with a population 
--- of at least 200 million. (WHERE)
+-- of at least 200 million. (WHERE Clause)
 SELECT name, gdp/population
 FROM world
 WHERE population > 200000000;
 
 -- Problem 4: Show the name and population in millions for the countries of the continent 
--- 'South America'. Divide the population by 1000000 to get population in millions.(WHERE)
+-- 'South America'. Divide the population by 1000000 to get population in millions.(WHERE Clause)
 SELECT name, population/1000000
 FROM world
 WHERE continent IN 'South America';
 
--- Problem 5: Show the name and population for France, Germany, Italy (WHERE & IN)
+-- Problem 5: Show the name and population for France, Germany, Italy (WHERE & IN Clause)
 SELECT name, population
 FROM world
 WHERE name IN ('Germany','Italy','France');
@@ -36,40 +36,40 @@ FROM world
 WHERE name LIKE '%United%';
 
 -- Problem 7: Show the countries that are big by area or big by population. Show name, population 
--- and area. (WHERE)
+-- and area. (WHERE & OR Clause)
 SELECT name, population, area
 FROM world
 WHERE area > 3000000 OR population > 250000000;
 
 -- Problem 8: Show the countries that are big by area or big by population but not both. 
--- Show name, population and area.(WHERE & XOR)
+-- Show name, population and area.(WHERE & XOR Clause)
 SELECT name, population, area
 FROM world
 WHERE area > 3000000 XOR population > 250000000;
 
--- Problem 9:For South America show population in millions and GDP in billions both to 2 decimal places. (ROUND)
+-- Problem 9:For South America show population in millions and GDP in billions both to 2 decimal places. (ROUND, WHERE & LIKE Clause)
 SELECT name, ROUND(population/1000000,2), ROUND(gdp/1000000000,2)
 FROM world
 WHERE continent LIKE 'South America';
 
 
--- Problem 10: Show per-capita GDP for the trillion dollar countries to the nearest $1000. (ROUND)
+-- Problem 10: Show per-capita GDP for the trillion dollar countries to the nearest $1000. (ROUND & WHERE Clause)
 SELECT name, ROUND(gdp/population,-3)
 FROM world
 WHERE gdp >= 1000000000000;
 
--- Problem 11: Show the name and capital where the name and the capital have the same number of characters. (LENGTH)
+-- Problem 11: Show the name and capital where the name and the capital have the same number of characters. (LENGTH & WHERE Clause)
 SELECT name, capital
 FROM world
 WHERE LENGTH(name) = LENGTH(capital);
 
 -- Problem 12: Show the name and the capital where the first letters of each match. 
--- Don't include countries where the name and the capital are the same word. (LEFT & <>)
+-- Don't include countries where the name and the capital are the same word. (LEFT & <> Clause)
 SELECT name, capital
 FROM world
 WHERE LEFT(name,1) = LEFT(capital,1) AND name <> capital
 
--- Problem 13: Find the country that has all the vowels and no spaces in its name. (NOT LIKE)
+-- Problem 13: Find the country that has all the vowels and no spaces in its name. (NOT LIKE & AND '%%' Clause)
 SELECT name
 FROM world
 WHERE name LIKE '%a%' 
@@ -80,38 +80,39 @@ AND name LIKE '%o%'
 AND name LIKE '%u%'
 
 -- ** Quiz **
--- Question 1: Find the countries that start with a U.
+-- Question 1: Find the countries that start with a U. (LIKE & '%'Clause)
 SELECT name
 FROM world
 WHERE name LIKE 'U%';
  
--- Question 2: Show the population for'United Kingdom'.
+-- Question 2: Show the population for'United Kingdom'. (WHERE Clause)
+
 SELECT population
 FROM world
 WHERE name = 'United Kingdom';
  
--- Question 3: Show the continent for 'France'.
+-- Question 3: Show the continent for 'France'. (WHERE Clause)
 SELECT continent 
 FROM world 
 WHERE name = 'France';
  
--- Question 4: Show the country and population divided by 10 where population is less than 10000.
+-- Question 4: Show the country and population divided by 10 where population is less than 10000. (WHERE CLAUSE)
 SELECT name, population / 10 
 FROM world 
 WHERE population < 10000;
  
--- Question 5: Show the countries and populations where the continent in Europe and Asia.
+-- Question 5: Show the countries and populations where the continent in Europe and Asia. (WHERE & IN Clause)
 SELECT name, population
 FROM world
 WHERE continent IN ('Europe', 'Asia')
 
--- Question 6: Show the countries for Cuba and Togo.
+-- Question 6: Show the countries for Cuba and Togo. (WHERE & IN Clause)
 SELECT name 
 FROM world
 WHERE name IN ('Cuba', 'Togo')
  
 
--- Question 7: Show the countries in South America where the population is greater than 40000000.
+-- Question 7: Show the countries in South America where the population is greater than 40000000. (WHERE & AND Clause)
 SELECT name 
 FROM world
 WHERE continent = 'South America'
