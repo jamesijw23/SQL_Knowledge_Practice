@@ -96,13 +96,51 @@ ORDER BY subject IN ('Physics','Chemistry') ,subject, winner
 
 -- **Quiz**
 
--- Question 1 ( Clause)
--- Question 2 ( Clause)
--- Question 3 ( Clause)
--- Question 4 ( Clause)
--- Question 5 ( Clause)
--- Question 6 ( Clause)
--- Question 7 ( Clause)
+-- Question 1: Show the winwers that their first name starts with an C and last name ends with an n.
+(WHERE, LIKE, & '%' Clause)
+SELECT winner FROM nobel
+WHERE winner LIKE 'C%' 
+AND winner LIKE '%n';
+
+-- Question 2: SHOW the number of winners in the 1950's in Chemistry. (WHERE & AND Clause)
+SELECT COUNT(subject) 
+FROM nobel
+WHERE subject = 'Chemistry'
+AND yr BETWEEN 1950 AND 1960;
+
+-- Question 3: Count the distinct years in which no one won a prize in medicine. 
+-- (SUBQUERY, NOT IN & WHERE Clause)
+SELECT COUNT(DISTINCT yr) 
+FROM nobel
+WHERE yr NOT IN (SELECT DISTINCT yr FROM nobel WHERE subject = 'Medicine');
+
+-- Question 4: State the subject and winner for those who were a Knight during the 1960s 
+-- (WHERE, LIKE, & '%' Clause)
+SELECT subject, winner 
+FROM nobel 
+WHERE winner LIKE 'Sir%' 
+AND yr LIKE '196%';
+
+-- Question 5: State the years in which both Chemistry and Physics prizes are not awarded
+(SUBQUERY, WHERE, NOT IN, & IN Clause)
+SELECT yr 
+FROM nobel
+WHERE yr NOT IN (SELECT yr FROM nobel WHERE subject IN ('Chemistry','Physics'));
+
+-- Question 6: State the distinct years in which medicine was awarded but no award was
+-- given to Literature and Peace. (WHERE, AND, & NOT IN Clause)
+SELECT DISTINCT yr
+FROM nobel
+WHERE subject='Medicine' 
+AND yr NOT IN(SELECT yr FROM nobel WHERE subject='Literature')
+AND yr NOT IN (SELECT yr FROM nobel WHERE subject='Peace');
+
+-- Question 7: Show tne number of awards per subject in 1960. (WHERE & GROUP BY Clause)
+SELECT subject, COUNT(subject) 
+FROM nobel 
+WHERE yr ='1960' 
+GROUP BY subject;
+
 
 
 
