@@ -11,7 +11,7 @@
 ##------------------------
 library(dplyr)
 
-
+set.seed(123)
 ## NUmber of entries 
 entries = 30
 
@@ -39,6 +39,8 @@ card_type = rbinom(entries,1,0.25)
 
 ## Create Transaction Table
 trans_act = data.frame(id=as.factor(id),dates,trans_number,amount,ip,card_type)
+
+## Create Corrupted Transaction Table
 trans_act_mod1 = trans_act
 trans_act_mod1 [c(9,11),5] = "ip_mem_4"
 
