@@ -9,6 +9,8 @@
 
 
 ##------------------------
+## Generation of Data
+##------------------------
 library(dplyr)
 
 set.seed(123)
@@ -48,7 +50,9 @@ trans_act_mod1 [c(9,11),5] = "ip_mem_4"
 id_ip = data.frame(id = paste("id_mem_",seq(1,5),sep=""),
                    ip = paste("ip_mem_",seq(1,5),sep=""))
 
-
+##------------------------
+## Solution to Problem
+##------------------------
 
 ##--------------------------------------------------------
 ## Name: id_diff_fraud
