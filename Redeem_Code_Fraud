@@ -1,0 +1,75 @@
+##------------------------------------------
+## Broad Question 1: How many been redeem more than once? 
+## Broad Question 2: What are the IP address and ID of those who tried a code twice?
+##------------------------------------------
+
+## More description of Problem 
+## Table called redeem: member_id |  timestamp | product_code | product | IP_address | coupon_code
+
+
+##------------------------
+## Generation of Data
+##------------------------
+
+library(dplyr)
+
+set.seed(123)
+## Number of entries 
+entries = 40
+
+## IDs
+id_numbers = sample(5,entries,replace = T)
+id = paste("id_mem_",id_numbers,sep="")
+
+
+## Dates
+u1 <- runif(entries, -6048000, 6048000) 
+dates = as.POSIXlt(u1, origin = "2018-06-10 08:00:00")
+
+## Product Code and Products
+u2 = sample(3,entries,replace=T)
+prodc_types = c("pc_1","pc_2","pc_3")
+prod_types = c("Madden","The Sims","Dead Space")
+
+product_code = prodc_types[u2]
+product = prod_types[u2]
+
+
+## IP Address
+ip = paste("ip_mem_",id_numbers,sep="")
+
+## Coupon Code (Redeem)
+u3 = sample(seq(100,999),entries,replace = F)
+
+coupon_code = paste("coupon_",u3,sep="")
+
+## Create Table
+redeem = data.frame(id,dates,product_code,
+                    product,ip,
+                    coupon_code=as.character(coupon_code))%>%
+  arrange(id,dates,product_code)
+
+## Make corrupted table
+redeem_mod = redeem
+redeem_mod [c(37,39,40,3),6] = c("coupon_302",
+                               "coupon_892",
+                               "coupon_287",
+                               "coupon_826")
+
+##------------------------
+## Solution to Problem
+##------------------------
+## Number of more than 1 frauds
+redeem_mod %>%
+  group_by(coupon_code) %>%
+  filter(n() > 1) %>%
+  summarise(num_red = n())
+
+## Find IP address  and ID of Frauds
+redeem_mod %>%
+  group_by(coupon_code) %>% 
+  filter(n()>1) %>%
+  group_by(coupon_code) %>% 
+  filter(row_number()!=1) %>%
+  select(id,ip)
+  
