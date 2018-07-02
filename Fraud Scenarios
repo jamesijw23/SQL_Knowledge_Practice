@@ -1,7 +1,14 @@
--- How many frauds occurred last month?
--- What is the definition of fraud? IP_address is not the same as previous purchase
--- Table called trans_act: member_id | date |trans_number | amount | IP_address | card_type 
--- Table called ip_id: member_id | IP_address
+##------------------------------------------
+## Broad Question: How many frauds occurred last month?
+##------------------------------------------
+
+## More description of Problem 
+## What is the definition of fraud? IP_address is not the same as previous purchases
+## Table called trans_act: member_id | date |trans_number | amount | IP_address | card_type 
+## Table called ip_id: member_id | IP_address
+
+
+##------------------------
 library(dplyr)
 
 
@@ -37,28 +44,35 @@ card_type = rbinom(entries,1,0.25)
 ## Create Transaction Table
 trans_act = data.frame(id=as.factor(id),dates,trans_number,amount,ip,card_type)
 trans_act_mod1 = trans_act
-trans_act_mod1 [c(9,10,11),5] = "ip_mem_4"
+trans_act_mod1 [c(9,11),5] = "ip_mem_4"
 
 ## Create member ID and IP address table
 id_ip = data.frame(id = paste("id_mem_",seq(1,5),sep=""),
                    ip = paste("ip_mem_",seq(1,5),sep=""))
 
 
-id_diff_fraud = function(x,trans_df,id_df){
+
+##--------------------------------------------------------
+## Name: id_diff_fraud
+## Input: member id, all trans table, all id/ip table
+## Output: list of transaction numbers 
+## Purpose: Find Frauds based on id and ip address
+##--------------------------------------------------------
+id_diff_fraud = function(m_id,trans_df,id_df){
   ## Find all purchases
   all_ips = trans_df %>%
-    filter(id == x) %>%
+    filter(id == m_id) %>%
     select(ip)
   ## Find the appropriate ips
   appropriate_ips = id_df %>%
-    filter(id == x) %>%
+    filter(id == m_id) %>%
     select(ip)
   ## Check to see if ip address are the same
   check = as.character(all_ips[,1]) %in% as.character(appropriate_ips[,1])
   
   ## Find the Transactions number that fraud was detected
   fraud = trans_df %>%
-    filter(id == x) %>%
+    filter(id == m_id) %>%
     filter(!check) %>%
     select(trans_number)
   
@@ -70,16 +84,18 @@ id_diff_fraud = function(x,trans_df,id_df){
   }
 } 
 
+## Find all unique ids
 unique_members = trans_act_mod1 %>%
   select(id) %>%
   unique 
 
 
-x = as.matrix(as.character(unique_members[,1]))
+## Find the frauds for each id
+frauds = sapply(unique_members[,1],
+                id_diff_fraud,
+                trans_df=trans_act_mod1,
+                id_df=id_ip)
 
-## Works
-# apply(x,1,id_diff_fraud)
-sapply(x,id_diff_fraud,trans_df=trans_act_mod1,id_df=id_ip)
-
-
+## Number of Frauds
+sum(!is.na(unlist(frauds)))
 
