@@ -16,7 +16,6 @@ library(dplyr)
 entries = 30
 
 ## IDs
-
 id_numbers = sample(5,entries,replace = T)
 id = paste("id_mem_",id_numbers,sep="")
 
@@ -25,15 +24,12 @@ id = paste("id_mem_",id_numbers,sep="")
 u <- runif(entries, 0, 604800) # "noise" to add or subtract from some timepoint
 dates = as.POSIXlt(u, origin = "2018-06-30 08:00:00")
 
-
 ## Trans_number
 t_num = sample(1000,entries,replace = F)
 trans_number = paste("tn_",t_num,sep="")
 
-
 ## Amount
 amount = runif(entries,10,60)
-
 
 ## IP Address
 ip = paste("ip_mem_",id_numbers,sep="")
