@@ -1,6 +1,7 @@
 -- How many frauds occurred last month?
 -- What is the definition of fraud? IP_address is not the same as previous purchase
--- Table called transactions: member_id | date |trans_number | amount | IP_address | card_type 
+-- Table called trans_act: member_id | date |trans_number | amount | IP_address | card_type 
+-- Table called ip_id: member_id | IP_address
 library(dplyr)
 
 
