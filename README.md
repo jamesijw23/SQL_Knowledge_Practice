@@ -1,2 +1,3 @@
 # SQL_Knowledge_Practice
-This repository is used for me to practice my SQL querying.
+ - Strengthening my SQL ability and capacity
+ - This repository is used for me to practice my SQL querying.
