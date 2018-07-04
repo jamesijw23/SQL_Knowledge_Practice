@@ -1,0 +1,10 @@
+Download PostgreSQL Use this tutorial https://www.youtube.com/watch?v=e1MwsT5FJRQ&t=488s
+From: https://www.postgresql.org/download/ 
+Load Tables into PostgreSQL: https://www.youtube.com/watch?v=yDtgk_OLHUc
+Data Type when loading in tables in SQL databases: https://www.w3schools.com/sql/sql_datatypes.asp
+
+Right Cick Servers/Create/Server...
+
+Enter Following information:
+ - Name: Detailed name for server
+ - Host name/address: (On laptop use "localhost")
