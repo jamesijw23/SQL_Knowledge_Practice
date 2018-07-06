@@ -1,0 +1,43 @@
+course: courseno | cname | cdate	
+
+department: depno | dname | location | head
+
+empcourse: empno | courseno	
+
+jobhistory: empno | position | startdate | enddate | salary
+
+employee: empno | surname | forenames | dob | address | telno | depno	
+
+
+-- Q1: List all employees by surname and forenames who have been on a course in 1988.
+library(dplyr)
+library(lubridate)
+
+-- B1_Q1: Find date. (assuming course numbers are not repeated for same class)
+SELECT courseno
+FROM course
+WHERE cdate BETWEEN '01-Jan-88' and '31-Dec-88';
+
+
+course %>%
+filter(year(cdate) == 1988) 
+
+
+-- B2_Q1: Find empno based on these courseno.
+SELECT DISTINCT forenames, surname
+FROM employee
+WHERE empno IN (SELECT e.empno
+FROM empcourse e
+LEFT JOIN course c
+ON e.courseno = c.courseno
+WHERE c.cdate BETWEEN '01-Jan-88' AND '31-Dec-88');
+
+
+empno_c_1988 = course %>%
+ filter(year(cdate) == 1988) %>%
+ inner_join(.,y = course, by ="courseno") %>%
+ select(empno)
+
+employee %>%
+ filter(empno %in% empno_c_1988[,1]) %>%
+ select(distinct(forenames), surnames)
