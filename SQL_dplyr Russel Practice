@@ -41,3 +41,24 @@ empno_c_1988 = course %>%
 employee %>%
  filter(empno %in% empno_c_1988[,1]) %>%
  select(distinct(forenames), surnames)
+ 
+ 
+ 
+ 
+ -- Q2: List the average salary of current employees, grouped by department number.
+library(dplyr)
+library(lubridate)
+
+-- B1_Q2: Join jobhistory to employee
+SELECT e.depno, AVG(j.salary)
+FROM jobhistory j
+LEFT JOIN employee e
+USING(empno)
+WHERE j.enddate IS NULL
+GROUP BY e.depno;
+
+
+inner_join(x = jobhistory, y = employee, by = "empno") %>%
+ filter(enddate == NA) %>%
+ groupby(depno) %>%
+ summarise(avg_d = mean(salar)
