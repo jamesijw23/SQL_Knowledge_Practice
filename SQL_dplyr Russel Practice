@@ -44,12 +44,13 @@ employee %>%
  
  
  
- 
- -- Q2: List the average salary of current employees, grouped by department number.
+------------------------------------------------------------------------------------------------------------------------
+
+
+-- Q2: List the average salary of current employees, grouped by department number.
 library(dplyr)
 library(lubridate)
 
--- B1_Q2: Join jobhistory to employee
 SELECT e.depno, AVG(j.salary)
 FROM jobhistory j
 LEFT JOIN employee e
@@ -62,3 +63,23 @@ inner_join(x = jobhistory, y = employee, by = "empno") %>%
  filter(enddate == NA) %>%
  groupby(depno) %>%
  summarise(avg_d = mean(salar)
+ 
+ 
+ 
+ ------------------------------------------------------------------------------------------------------------------------
+
+
+-- Q3:  Count the number of employees in each of the departments numbered 3 to 5 inclusively.
+library(dplyr)
+library(lubridate)
+
+SELECT depno, COUNT(*)
+FROM employee
+WHERE depno BETWEEN 3 AND 5
+GROUP BY depno;
+
+employee %>%
+ filter(depno %in% c(3,4,5))
+ groupby(depno) %>%
+ summarise(count_d = n())
+
