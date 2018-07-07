@@ -1,0 +1,1002 @@
+# Where: (DB Tutorial 2 --> SELECT, FROM and WHERE)
+
+### Example 1: List the employee number, position and salary of any employee who has been or is some sort of Analyst. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 2: List the employee number, position and salary of any employee who is an Analyst programmer.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+
+### Example 3: List the forenames and surname of all employees who are in department number 3.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 4: List course numbers and employee numbers for all courses that employee numbers 7 and 14 have been on.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 5: Count the number of current Analyst Programmers.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 6: Find the average salary of employees who hold the position of Accountant in the company.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 7: Find the number of jobs employee 22 has had or has currently
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 8: Find the number of employees in department number 2.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 9: List the empno and position of any employee who's position includes the word 'Engineer'
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 10: List the empno of all employees who got a job or promotion in 1984.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 11: What is the minimum salary currently?
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 12: List all the surnames of any employee who has an address in Edinburgh.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 13: List the surname of any employee who does not have an e in their surname.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 14: Count the number of employee who has a forename starting with M or A.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 15: List the employee numbers and telephone numbers ordered by descending telephone number.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 16: Find all the distinct current jobs.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 17: Find all the distinct current salaries.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+# Where: (DB Tutorial 3 --> MultiTable JOINS)
+
+### Example 1: List the full names of employees who have been on any Accounting course.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 2: Count the number of different employees who have been on any course.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 3:List all employees by surname and forenames who have been on a course in 1988. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 4: List in alphabetical order of department name then surname and then forename, the current position of all employees.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 5: Count the number of employees who have been on each course.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 6: Count the number of employees in each of the departments numbered 3 to 5 inclusively. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 7: List the average salary of current employees, grouped by department number. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+_______________________________________________________________________
+
+
+### Example 8: List the number of jobs each employee has had within the company. Identify each employee by surname.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+_______________________________________________________________________
+
+
+### Example 9: List the maximum and minimum salary of current employees and their department name, grouped by department.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 10: List all the employees by surname and forenames who are in the same department as Matthew Brownlie.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 11:List the employee numbers and salary of all current employees who earn more than the employee number 16. 
+In each row show both the employee's salary and the salary of employee 16.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 12: List the full names and positions of current employees who have been on any of the courses that
+Robert Roberts has been on. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 13: List the full names of any employee who started a new job on the same day as Allan Robinson.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 14: List all employees by their full names with their positions who are in the same department as Brian 
+Murphy and are older than him. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 15: List all employees by their full names who currently have the same salary as Claire MacCallan, 
+and order them alphabetically by surname. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+### Example 16: Convert the answer to question 15 to COUNT the occurences.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Where: (DB Tutorial 4 --> Subselect)
+### Example 1: Use subqueries to list the surname of employees who have been on a course with employee 19.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 2: List the surname of those who earn less than the average salary of all staff. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 3: List the surname of employees who earn more than the average salary of employees who have jobs connected with Accounts.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 4: List the surname and forenames of employees who earn more than any employee connected to Admin.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 5: List the surname and position of employees earning less than everyone in department 3.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 6: List the surname of employees who has been on a course which employee number 14 has not been on.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 7: List the surname of employees who are currently doing a unique job.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 8: List the surname of employees who have done or are doing any job which employee 23 has done or is doing.
+Include the surname of employee 23.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 9: List the course names of courses which employees from department number 2 have been on.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 10: List the employee surname, forenames, and course for each time an employee attended a course at which no other
+colleague was present.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 11: List the full names and positions of employees who have been on any of the courses that Robert Roberts has been on.
+Use subselect.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 12: List the employee numbers and telephone numbers of all staff in department 3 or 1. Make use of UNION.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 13: List the employee number of the head of department 4 and the employee numbers of all staff in department 4 in a
+single table using union.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 14: List the full name of everyone living in Edinburgh or who is in accounts. Perform this task using UNION.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 15:  Write a query which shows which empno has been to the most courses. List the empno and the number of courses that
+person has been on. There may be multiple employees with the biggest count.
+
+You should make use of HAVING. For instance, to show the depno and the number of employees in that depno for only
+the biggest department you could do: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 16:  Write a query which shows which employee has had the most jobs with the company. 
+There may be multiple employees with the biggest job count. Show the surname,forename, and the job count in your answer. 
+You will have to GROUP BY two columns (e.g. GROUP BY x,y). 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Where: (DB Tutorial 5 --> Create Views and Outer Joins)
+### Example 1: 
+You can create a view by saying:
+
+CREATE VIEW firstview as
+  select distinct empno from empcourse
+
+This view can be accessed by
+
+SELECT * from firstview
+
+It continues to exist for all questions in this tutorial section. 
+To get rid of it use "drop view firstview".
+
+Create a view "secondview" which shows all employees who have an empno less than 5. 
+In order to get a mark for this you must finish the queries with "select * from secondview". 
+
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 2: create a view which lists the number of courses each empno has been on, and confirm this as
+being correct by executing "select * from viewname" on it as the last select command of your SQL. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 3: create a view which lists the number of jobs each empno has been on, and confirm this as
+being correct by executing "select * from viewname" on it.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 4: create a statement which combines the views from questions 2 and 3 together to show how
+many jobs and how many courses each empno has been on. You SHOULD NOT create the views again as part of the answer, 
+just access them with the same name used to create them in the previous questions. If the employee has been on 0 courses then the total
+no of courses for that employee should be blank (null). Hint: use OUTER JOIN.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 5: Create a view which is identical to department except it only contains departments whose HEAD is equal to the empno of
+an employee with a surname "Jones". Run a "select * from viewname" to confirm this.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 6: Using the view created in question 5 (and NOT the DEPARTMENT table) list the surname and forenames of
+all employees against the department name they work in. If an employee's department does not exist in the view then show 
+the department name as a blank. Use an OUTER JOIN.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 7: Modify your query as produced in question 6 so that if the department name is not present ni the view then the
+department name appears as "UNKNOWN" (in upper case). Use a UNION and not an OUTER JOIN to do this.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 8: Write a query which lists all empno values against the NAME of the courses they did. If an empno has not been on any courses
+list the empno against a blank course. Hint: you have to handle two joins which involve NULL; empcourse and course.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 9: List the number of months which employee 17 has been in each of his jobs in the company. Use the function ROUND to get the number
+of months as a whole number.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 10: How old is each employee in months. Format this as employee number against age in months. Round to the nearest whole number of months.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 11: Find the employee who has held a position in the company for the longest, not including the current job.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 12: Find the employee number of the employee who has held a position in the company for the longest, including the current job.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 13: How many days old is each employee. Identify each employee by their empno. Give days as the nearest whole number.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 14: How many months ago was each course? Show the course number, the date it last ran, and the time ago in months. 
+Round months to one decimal place. For example ROUND(3.14,1) gives 3.1
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 15: Using views, list all the names and positions of employees who have been on any of the courses that Robert Roberts has been on.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Where: (zoo 1 --> )
+### Example 1: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 2: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 3: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 4: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 5: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 6: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 7: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 8: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 9: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 10: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 11: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 12: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 13: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 14: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 15: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+
+
+
+
+
+# Where: (zoo 1 --> )
+### Example 1: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 2: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 3: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 4: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 5: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 6: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 7: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 8: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 9: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 10: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 11: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 12: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 13: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 14: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 15: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Where: (zoo 1 --> )
+### Example 1: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 2: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 3: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 4: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 5: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 6: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 7: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 8: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 9: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 10: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 11: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 12: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 13: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 14: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 15: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
