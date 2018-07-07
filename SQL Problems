@@ -1503,153 +1503,177 @@ ________________________________________________________________________
 ________________________________________________________________________
 
 
-## Stop
 
 
+movie: id | title | yr | director | budget | gross
+actor: id | name
+casting: movieid | actorid | ord
 
 
-# Where: (zoo 7 --> )
-### Example 1: 
+# Where: (zoo 7 --> More JOIN)
+### Example 1: List the films where the yr is 1962 [Show id, title] 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 2: 
+### Example 2: Give year of 'Citizen Kane'. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 3: 
+### Example 3: List all of the Star Trek movies, include the id, title and yr 
+(all of these movies include the words Star Trek in the title). Order results by year. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 4: 
+### Example 4: What id number does the actor 'Glenn Close' have? 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 5: 
+### Example 5: What is the id of the film 'Casablanca' 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 6: 
+### Example 6: Obtain the cast list for 'Casablanca'. Use movieid=11768, (or whatever value you got from the previous question) 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 7: 
+### Example 7: Obtain the cast list for the film 'Alien' 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 8: 
+### Example 8: List the films in which 'Harrison Ford' has appeared 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 9: 
+### Example 9: List the films where 'Harrison Ford' has appeared - but not in the starring role. 
+[Note: the ord field of casting gives the position of the actor. If ord=1 then this actor is in the starring role] 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 10: 
+### Example 10: List the films together with the leading star for all 1962 films. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 11: 
+### Example 11: Which were the busiest years for 'John Travolta', show the year and the number of movies he made 
+each year for any year in which he made more than 2 movies. 
+SELECT yr,COUNT(title) FROM
+  movie JOIN casting ON movie.id=movieid
+         JOIN actor   ON actorid=actor.id
+where name='John Travolta'
+GROUP BY yr
+HAVING COUNT(title)=(SELECT MAX(c) FROM
+(SELECT yr,COUNT(title) AS c FROM
+   movie JOIN casting ON movie.id=movieid
+         JOIN actor   ON actorid=actor.id
+ where name='John Travolta'
+ GROUP BY yr) AS t
+)
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 12: 
+### Example 12: List the film title and the leading actor for all of the films 'Julie Andrews' played in. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 13: 
+### Example 13: Obtain a list, in alphabetical order, of actors who've had at least 30 starring roles. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 14: 
+### Example 14: List the films released in the year 1978 ordered by the number of actors in the cast, then by title.
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 15: 
+### Example 15: List all the people who have worked with 'Art Garfunkel'. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 16: 
+### Example 16: Lists the unfortunate directors of the movies which have caused financial loses (gross < budget) 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 17: 
+### Example 17: Correctly JOIN all three tables.
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 18: 
+### Example 18: Shows the list of actors called 'John' by order of number of movies in which they acted.
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 19: 
+### Example 19: Find the titles of the film Where Paul Hogan was the lead movie actor.
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 20: 
+### Example 20: Lists all the actors that starred in movies directed by Ridley Scott who has id 351 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 21
+### Example 21: There are two sensible ways to connect movie and actor. They are: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 22: Find the title and the year where Robert De Niro was the third actor in the movie.
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
@@ -1672,177 +1696,122 @@ ________________________________________________________________________
 
 
 
+teacher: id | dept | name | phone | mobile
+dept: id | name
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Where: (zoo 8 --> )
-### Example 1: 
+# Where: (zoo 8 --> Using NULL)
+### Example 1: List the teachers who have NULL for their department. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 2: 
+### Example 2: Note the INNER JOIN misses the teachers with no department and the departments with no teacher. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 3: 
+### Example 3: Use a different JOIN so that all teachers are listed. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 4: 
+### Example 4: Use a different JOIN so that all departments are listed. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 5: 
+### Example 5: Use COALESCE to print the mobile number. Use the number '07986 444 2266' if there is no number given.
+Show teacher name and mobile number or '07986 444 2266'
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 6: 
+### Example 6: Use the COALESCE function and a LEFT JOIN to print the teacher name and department name. Use the string 
+'None' where there is no department. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 7: 
+### Example 7: Use COUNT to show the number of teachers and the number of mobile phones. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 8: 
+### Example 8: Use COUNT and GROUP BY dept.name to show each department and the number of staff. Use a RIGHT JOIN to ensure
+that the Engineering department is listed. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 9: 
+### Example 9: Use CASE to show the name of each teacher followed by 'Sci' if the teacher is in dept 1 or 2 and 'Art' otherwise.
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 10: 
+### Example 10: Use CASE to show the name of each teacher followed by 'Sci' if the teacher is in dept 1 or 2, show 'Art' if the teacher's
+dept is 3 and 'None' otherwise. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 11: 
+### Example 11: --
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 12: 
+### Example 12: shows the name of department which employs Cutflower.
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 13: 
+### Example 13: Use a JOIN to show a list of all the departments and number of employed teachers 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 14: 
+### Example 14: Using SELECT name, dept, COALESCE(dept, 0) AS result FROM teacher on teacher table will
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 15: 
+### Example 15: State the name and make a variable name digit when phone = 2752 is 'two',
+phone = 2753 is 'three' and phone = 2754 is 'four'.
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 16: 
-(Assumptions: )
-(Actions: )
-(Variables & Tables: )
-(Process: )
-(Clauses: )
-________________________________________________________________________
-### Example 17: 
-(Assumptions: )
-(Actions: )
-(Variables & Tables: )
-(Process: )
-(Clauses: )
-________________________________________________________________________
-### Example 18: 
-(Assumptions: )
-(Actions: )
-(Variables & Tables: )
-(Process: )
-(Clauses: )
-________________________________________________________________________
-### Example 19: 
-(Assumptions: )
-(Actions: )
-(Variables & Tables: )
-(Process: )
-(Clauses: )
-________________________________________________________________________
-### Example 20: 
-(Assumptions: )
-(Actions: )
-(Variables & Tables: )
-(Process: )
-(Clauses: )
-________________________________________________________________________
-### Example 21
+### Example 16: Find the name and make a variable depart_type when dept is 1 it is 'Computing' and 
+otherwise 'Other'.
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
@@ -1882,101 +1851,108 @@ ________________________________________________________________________
 
 
 
+stops id | name
+route num | company | pos | stop
 
 
 
 
 
 
-
-
-
-# Where: (zoo 9 --> )
-### Example 1: 
+# Where: (zoo 9 --> Self Joins)
+### Example 1: How many stops are in the database. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 2: 
+### Example 2: Find the id value for the stop 'Craiglockhart' 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 3: 
+### Example 3: Give the id and the name for the stops on the '4' 'LRT' service. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 4: 
+### Example 4: The query shown gives the number of routes that visit either London Road (149) or Craiglockhart (53). 
+Run the query and notice the two services that link these stops have a count of 2. Add a HAVING clause to restrict the output 
+to these two routes. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 5: 
+### Example 5: Execute the self join shown and observe that b.stop gives all the places you can get to from Craiglockhart, without changing routes. 
+Change the query so that it shows the services from Craiglockhart to London Road. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 6: 
+### Example 6: The query shown is similar to the previous one, however by joining two copies of the stops table we can refer to 
+stops by name rather than by number. Change the query so that the services between 'Craiglockhart' and 'London Road' are shown. 
+If you are tired of these places try 'Fairmilehead' against 'Tollcross' 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 7: 
+### Example 7: Give a list of all the services which connect stops 115 and 137 ('Haymarket' and 'Leith').
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 8: 
+### Example 8: Give a list of the services which connect the stops 'Craiglockhart' and 'Tollcross' 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 9: 
+### Example 9: Give a distinct list of the stops which may be reached from 'Craiglockhart' by taking one bus, including 'Craiglockhart' itself, 
+offered by the LRT company. Include the company and bus no. of the relevant services. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 10: 
+### Example 10: Find the routes involving two buses that can go from Craiglockhart to Sighthill.
+Show the bus no. and company for the first bus, the name of the stop for the transfer,
+and the bus no. and company for the second bus. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 11: 
+### Example 11: Show it is possible to get from Craiglockhart to Haymarket 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 12: 
+### Example 12: Show the stops that are on route.num '2A' which can be reached with one bus from Haymarket
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 13: 
+### Example 13: Shows the services available from Tollcross.
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
