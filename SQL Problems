@@ -1,5 +1,13 @@
-# Where: (DB Tutorial 2 --> SELECT, FROM and WHERE)
+course: courseno | cname | cdate	
 
+department: depno | dname | location | head
+
+empcourse: empno | courseno	
+
+jobhistory: empno | position | startdate | enddate | salary
+
+employee: empno | surname | forenames | dob | address | telno | depno 
+# Where: (DB Tutorial 2 --> SELECT, FROM and WHERE)
 ### Example 1: List the employee number, position and salary of any employee who has been or is some sort of Analyst. 
 (Assumptions: )
 (Actions: )
@@ -631,8 +639,424 @@ ________________________________________________________________________
 
 
 
-
+-- world (Table Design): name | continent| area | population | gdp
 # Where: (zoo 1 --> )
+### Example 1: Show the population of Germany 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 2: Show the name and the population for 'Sweden', 'Norway' and 'Denmark' 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 3: Show the country and the area for countries with an area between 200,000 and 250,000
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 4: Show name and population where population between 1000000 AND 1250000
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 5: Show name and population of the country that starts with 'Al' 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 6:  Show the name of the country that ends in 'a' or 'l'.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 7: Show the name and length of name where the length of name is equal to 5 and the region is Europe.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 8: Show the country and area multiplied by 2 where the population is equal to 64000.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 9: Show country, area and population where area is greater than 50000 and population is less than 10000000 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 10: Show country and population density for China, Nigeria, France and Australia.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+
+
+
+# Where: (zoo 2 --> )
+### Example 1: Show the name, continent and population of all countries. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 2:  Show the name for the countries that have a population of at least 200 million. 200 million is 200000000, 
+there are eight zeros.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 3: Show the name and the per capita GDP for those countries with a population 
+of at least 200 million. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 4: Show the name and population in millions for the countries of the continent 'South America'. Divide the
+population by 1000000 to get population in millions.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 5: Show the name and population for France, Germany, Italy.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 6: Show the countries which have a name that includes the word 'United'.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 7: Show the countries that are big by area or big by population. Show name, population 
+and area.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 8: Show the countries that are big by area or big by population but not both. 
+Show name, population and area.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 9: For South America show population in millions and GDP in billions both to 2 decimal places. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 10: Show per-capita GDP for the trillion dollar countries to the nearest $1000.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 11: Show the name and capital where the name and the capital have the same number of characters.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 12: Show the name and the capital where the first letters of each match. Don't include countries
+where the name and the capital are the same word. (LEFT & <> Clause)
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 13: Find the country that has all the vowels and no spaces in its name. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 14: Find the countries that start with a U. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 15: Show the population for'United Kingdom'.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 16: Show the continent for 'France'.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 17: Show the country and population divided by 10 where population is less than 10000.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 18: Show the countries and populations where the continent in Europe and Asia.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 19: Show the countries for Cuba and Togo.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 20: Show the countries in South America where the population is greater than 40000000.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- nobel (Table Design): yr | subject | winner
+# Where: (zoo 3 --> )
+### Example 1: Show the Nobel prizes for 1950.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 2: Show who won the 1962 prize for Literature.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 3: Show the year and subject that won 'Albert Einstein' his prize.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 4: Give the name of the 'Peace' winners since the year 2000, including 2000.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 5: Show all details (yr, subject, winner) of the Literature prize winners for 1980 to 1989 inclusive.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 6: Show all details of the presidential winners: Theodore Roosevelt, Woodrow Wilson, Jimmy Carter,
+Barack Obama.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 7: Show the winners with first name John.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 8: Show the year, subject, and name of Physics winners for 1980 together with the 
+Chemistry winners for 1984. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 9: Show the year, subject, and name of winners for 1980 excluding Chemistry and Medicine.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 10: Show year, subject, and name of people who won a 'Medicine' prize in an early year 
+(before 1910, not including 1910) together with winners of a 'Literature' prize in a later year 
+(after 2004, including 2004). 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 11: Find all details of the prize won by PETER GRÜNBERG.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 12: Find all details of the prize won by EUGENE O'NEILL. 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 13: List the winners, year and subject where the winner starts with Sir. Show the most recent
+first, then by name order.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 14:  The expression subject IN ('Chemistry','Physics') can be used as a value - it will be 0 or 1.
+Show the 1984 winners and subject ordered by subject and winner name; but list Chemistry and Physics last.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 15: Show the winwers that their first name starts with an C and last name ends with an n.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 16: SHOW the number of winners in the 1950's in Chemistry.
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 17: Count the distinct years in which no one won a prize in medicine 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 18: State the subject and winner for those who were a Knight during the 1960s 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 19: State the years in which both Chemistry and Physics prizes are not awarded
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 20: State the distinct years in which medicine was awarded but no award was
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 21: Show tne number of awards per subject in 1960. (WHERE & GROUP BY Clause)
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Where: (zoo 4 --> SELECT )
 ### Example 1: 
 (Assumptions: )
 (Actions: )
@@ -738,6 +1162,48 @@ ________________________________________________________________________
 (Process: )
 (Clauses: )
 ________________________________________________________________________
+### Example 16: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 17: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 18: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 19: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 20: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 21
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
 
 
 
@@ -745,7 +1211,45 @@ ________________________________________________________________________
 
 
 
-# Where: (zoo 1 --> )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Where: (zoo 5 --> )
 ### Example 1: 
 (Assumptions: )
 (Actions: )
@@ -851,6 +1355,48 @@ ________________________________________________________________________
 (Process: )
 (Clauses: )
 ________________________________________________________________________
+### Example 16: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 17: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 18: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 19: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 20: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 21
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
 
 
 
@@ -868,7 +1414,32 @@ ________________________________________________________________________
 
 
 
-# Where: (zoo 1 --> )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Where: (zoo 6 --> )
 ### Example 1: 
 (Assumptions: )
 (Actions: )
@@ -974,6 +1545,204 @@ ________________________________________________________________________
 (Process: )
 (Clauses: )
 ________________________________________________________________________
+### Example 16: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 17: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 18: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 19: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 20: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 21
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+
+## Stop
+
+
+
+
+# Where: (zoo 7 --> )
+### Example 1: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 2: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 3: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 4: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 5: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 6: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 7: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 8: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 9: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 10: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 11: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 12: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 13: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 14: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 15: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 16: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 17: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 18: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 19: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 20: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 21
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
 
 
 
@@ -992,6 +1761,371 @@ ________________________________________________________________________
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Where: (zoo 8 --> )
+### Example 1: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 2: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 3: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 4: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 5: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 6: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 7: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 8: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 9: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 10: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 11: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 12: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 13: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 14: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 15: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 16: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 17: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 18: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 19: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 20: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 21
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Where: (zoo 9 --> )
+### Example 1: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 2: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 3: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 4: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 5: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 6: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 7: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 8: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 9: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 10: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 11: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 12: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 13: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 14: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 15: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 16: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 17: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 18: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 19: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 20: 
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
+### Example 21
+(Assumptions: )
+(Actions: )
+(Variables & Tables: )
+(Process: )
+(Clauses: )
+________________________________________________________________________
 
 
 
