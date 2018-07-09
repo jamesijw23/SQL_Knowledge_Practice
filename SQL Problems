@@ -233,12 +233,6 @@ ________________________________________________________________________
 
 
 
-course: courseno | cname | cdate	
-department: depno | dname | location | head
-empcourse: empno | courseno	
-jobhistory: empno | position | startdate | enddate | salary
-employee:  empno | surname | forenames | dob | address | telno | depno 
-
 
 ----------------------------------------------------------------------------------------------------
 ### Example 7: List the average salary of current employees, grouped by department number. 
@@ -266,7 +260,7 @@ GROUP BY e.depno;
 
 ----------------------------------------------------------------------------------------------------
 ### Example 8: List the number of jobs each employee has had within the company. Identify each employee by surname.
-(Assumptions/Necesary Tables: )
+(Assumptions/Necessary Tables: )
 department: depno | dname | location | head
 jobhistory: empno | position | startdate | enddate | salary
 employee: empno | surname | forenames | dob | address | telno | depno 
@@ -292,7 +286,7 @@ GROUP BY ee.surname;
 
 ----------------------------------------------------------------------------------------------------
 ### Example 9: List the maximum and minimum salary of current employees and their department name, grouped by department.
-(Assumptions/Necesary Tables: )
+(Assumptions/Necessary Tables: )
 department: depno | dname | location | head
 jobhistory: empno | position | startdate | enddate | salary
 employee:  empno | surname | forenames | dob | address | telno | depno 
@@ -326,70 +320,134 @@ ON q.depno = department.depno;
 
 
 
+course: courseno | cname | cdate	
+department: depno | dname | location | head
+empcourse: empno | courseno	
+jobhistory: empno | position | startdate | enddate | salary
+employee:  empno | surname | forenames | dob | address | telno | depno 
 
+----------------------------------------------------------------------------------------------------
 ### Example 10: List all the employees by surname and forenames who are in the same department as Matthew Brownlie.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
+employee:  empno | surname | forenames | dob | address | telno | depno 
 (Variables & Tables: )
-(Process: )
+employee   --> (depno, surname, fornames) Matthew Brownlie's table 
+employee   --> (depno, surname, fornames) Everyone's else table
+(Actions/Process: )
+- make two aliases for employees
+- make 1st table for matthew brownlie's 
+- make 2nd table and not matthew brownlie
+- join tables by using depno from both tables equal
+- select 2nd table surname
+- select 2nd table forenames
 (Clauses: )
-________________________________________________________________________
+SELECT ee2.surname, ee2.forenames
+FROM employee ee1, employee ee2
+WHERE ee1.surname = 'Brownlie' 
+AND ee1.forenames = 'Matthew' 
+AND ee2.surname <> 'Brownlie'
+AND ee2.forenames <> 'Matthew'
+AND ee1.depno = ee2.depno;
+----------------------------------------------------------------------------------------------------
 
 
-### Example 11:List the employee numbers and salary of all current employees who earn more than the employee number 16. 
+----------------------------------------------------------------------------------------------------
+### Example 11: List the employee numbers and salary of all current employees who earn more than the employee number 16. 
 In each row show both the employee's salary and the salary of employee 16.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
+jobhistory: empno | position | startdate | enddate | salary
 (Variables & Tables: )
-(Process: )
+jobhistory   --> (empno, salary) empno 16
+jobhistory   --> (empno, salary) Everyone's else table
+(Actions/Process: )
+- make two aliases for jobhistory
+- make 1st table for empno 16
+- make 1st table have current workers
+- make 2nd table have current workers
+- make 2nd table have salary be greater than 1st table salary
+- select 2nd table empno
+- select 2nd table salary
+- selest 1st table salary
 (Clauses: )
-________________________________________________________________________
+SELECT jb2.empno, jb2.salary, jb1.salary
+FROM jobhistory jb1, jobhistory jb2
+WHERE jb1.empno = 16
+AND jb1.enddate IS NULL
+AND jb2.enddate IS NULL
+AND jb2.salary > jb1.salary;
+----------------------------------------------------------------------------------------------------
+
+
 
 
 ### Example 12: List the full names and positions of current employees who have been on any of the courses that
 Robert Roberts has been on. 
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
+empcourse: empno | courseno	
+jobhistory: empno | position | startdate | enddate | salary
+employee:  empno | surname | forenames | dob | address | telno | depno 
 (Variables & Tables: )
-(Process: )
+employee     --> (empno, surname, forenames) Robert Roberts' table
+employee     --> (empno, surname, forenames) Everyone's else table
+jobhistory   --> (empno, position) Everyone's else table
+empcourse    --> (empno, course) Robert Roberts' table
+empcourse    --> (empno, course) Everyone's else table
+(Actions/Process: )
+ - make 1st employee table Roberts table (2 tasks needed: forenames & surname)
+ - make 1st empcourse table Robert Roberts table
+ - make 2nd employee table not include Robert Roberts
+ - make 2nd empcourse table have same courses as 1st empcourse table
+ - make 2nd employee table have same empno as 2nd empcourse table
+ - make jobhistory have the same empno as 2nd employee table
+ - make enddate in jobhistory null for current workers
 (Clauses: )
-________________________________________________________________________
+SELECT DISTINCT ee2.surname, ee2.forenames, jh.position
+FROM   employee ee1, employee ee2, 
+       empcourse emp1, empcourse emp2, 
+       jobhistory jh
+WHERE  ee1.surname = 'Roberts'
+  AND  ee1.forenames = 'Robert'
+  AND  emp1.empno = ee1.empno 
+  AND  ee2.empno != ee1.empno 
+  AND  ee2.courseno = ee1.courseno  
+  AND  ee2.empno = emp2.empno          
+  AND  ee2.empno = jh.empno               
+  AND  jh.enddate is NULL;
+
+
+
 
 
 ### Example 13: List the full names of any employee who started a new job on the same day as Allan Robinson.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 
 
 ### Example 14: List all employees by their full names with their positions who are in the same department as Brian 
 Murphy and are older than him. 
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 
 
 ### Example 15: List all employees by their full names who currently have the same salary as Claire MacCallan, 
 and order them alphabetically by surname. 
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 
 
 ### Example 16: Convert the answer to question 15 to COUNT the occurences.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 
