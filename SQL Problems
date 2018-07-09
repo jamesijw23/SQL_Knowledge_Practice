@@ -228,31 +228,103 @@ ________________________________________________________________________
 ________________________________________________________________________
 
 
+
+
+
+
+
+course: courseno | cname | cdate	
+department: depno | dname | location | head
+empcourse: empno | courseno	
+jobhistory: empno | position | startdate | enddate | salary
+employee:  empno | surname | forenames | dob | address | telno | depno 
+
+
+----------------------------------------------------------------------------------------------------
 ### Example 7: List the average salary of current employees, grouped by department number. 
-(Assumptions: )
-(Actions: )
+(Assumptions/necessary tables: )
+jobhistory: empno | position | startdate | enddate | salary
+employee: empno | surname | forenames | dob | address | telno | depno 
 (Variables & Tables: )
-(Process: )
+jobhistory --> (empno, salary, enddate)
+employee   --> (empno, depno)
+(Actions/Process: )
+- (left/inner/right) join jobhistory and employee by empno
+- enddate is null for current workers
+- group by department numbers
+- select average salary
+- select depart numbers 
 (Clauses: )
-_______________________________________________________________________
+SELECT e.depno, AVG(j.salary)
+FROM employee e
+LEFT JOIN jobhistory j
+ON e.empno = j.empno
+WHERE enddate IS NULL
+GROUP BY e.depno;
+----------------------------------------------------------------------------------------------------
 
 
+----------------------------------------------------------------------------------------------------
 ### Example 8: List the number of jobs each employee has had within the company. Identify each employee by surname.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necesary Tables: )
+department: depno | dname | location | head
+jobhistory: empno | position | startdate | enddate | salary
+employee: empno | surname | forenames | dob | address | telno | depno 
 (Variables & Tables: )
-(Process: )
+jobhistory --> (empno, position)
+employee   --> (empno, surname)
+(Actions/Process: )
+- (left/inner/right) join jobhistory and employee by empno
+- enddate is null for current workers
+- group by empno
+- select count number of jobs per person
+- select distinct surname
 (Clauses: )
-_______________________________________________________________________
+SELECT ee.surname, COUNT(jb.position)
+FROM employee ee
+LEFT JOIN jobhistory jb
+ON ee.empno = jb.empno
+GROUP BY ee.surname;
+----------------------------------------------------------------------------------------------------
 
 
+
+
+----------------------------------------------------------------------------------------------------
 ### Example 9: List the maximum and minimum salary of current employees and their department name, grouped by department.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necesary Tables: )
+department: depno | dname | location | head
+jobhistory: empno | position | startdate | enddate | salary
+employee:  empno | surname | forenames | dob | address | telno | depno 
 (Variables & Tables: )
-(Process: )
+jobhistory --> (empno, salary, enddate)
+employee   --> (empno, depno)
+(Actions/Process: )
+- (left/inner/right) join jobhistory and employee by empno
+- enddate is null for current workers
+- group by depno
+- select max salary Alias as max_sal
+- select min salary Alias as min_sal
+- select depno
+- save as query (a different way)
+- (left/inner/right) join query and department by depno
+- select dname
+- select max_sal
+- select min_sal
 (Clauses: )
-________________________________________________________________________
+SELECT dname,Max_sal,Min_sal
+FROM(SELECT depno,MAX(salary) AS Max_sal,MIN(salary) AS Min_sal
+FROM jobhistory
+INNER JOIN employee
+ON jobhistory.empno = employee.empno
+WHERE jobhistory.enddate IS NULL
+GROUP BY depno) q
+LEFT JOIN department
+ON q.depno = department.depno;
+----------------------------------------------------------------------------------------------------
+
+
+
 
 
 ### Example 10: List all the employees by surname and forenames who are in the same department as Matthew Brownlie.
