@@ -318,14 +318,6 @@ ON q.depno = department.depno;
 ----------------------------------------------------------------------------------------------------
 
 
-
-
-course: courseno | cname | cdate	
-department: depno | dname | location | head
-empcourse: empno | courseno	
-jobhistory: empno | position | startdate | enddate | salary
-employee:  empno | surname | forenames | dob | address | telno | depno 
-
 ----------------------------------------------------------------------------------------------------
 ### Example 10: List all the employees by surname and forenames who are in the same department as Matthew Brownlie.
 (Assumptions/Necessary Tables: )
@@ -379,7 +371,7 @@ AND jb2.salary > jb1.salary;
 
 
 
-
+----------------------------------------------------------------------------------------------------
 ### Example 12: List the full names and positions of current employees who have been on any of the courses that
 Robert Roberts has been on. 
 (Assumptions/Necessary Tables: )
@@ -413,16 +405,47 @@ WHERE  ee1.surname = 'Roberts'
   AND  ee2.empno = emp2.empno          
   AND  ee2.empno = jh.empno               
   AND  jh.enddate is NULL;
+----------------------------------------------------------------------------------------------------
 
 
 
-
+course: courseno | cname | cdate	
+department: depno | dname | location | head
+empcourse: empno | courseno	
+jobhistory: empno | position | startdate | enddate | salary
+employee:  empno | surname | forenames | dob | address | telno | depno 
 
 ### Example 13: List the full names of any employee who started a new job on the same day as Allan Robinson.
 (Assumptions/Necessary Tables: )
+jobhistory: empno | position | startdate | enddate | salary
+employee:  empno | surname | forenames | dob | address | telno | depno 
 (Variables & Tables: )
+jobhistory     --> (empno, startdate)  Allan Robinson jobhistory table
+employee       --> (empno, surname, forenames) Allan Robinson employee table
+jobhistory     --> (empno, startdate) Everyone else jobhistory table
+employee       --> (empno, surname, forenames) Everyone else employee table
 (Actions/Process: )
+- find Allan Robinson empno from 1st employee table
+- join 1st employee table to 1st jobhistory table to find startdate based on empno 
+- join startdate from 1st jobhistory table to the 2nd jobhistory table
+- make sure empno in 2nd jobhistory table does not matches empno from 1st jobhistory table
+- join 2nd employee table with 2nd jobhistory table based on empno
+- select distinct forename from 2nd employee table 
+- select surname from 2nd employee table 
 (Clauses: )
+SELECT  DISTINCT ee2.forenames, ee2.surname
+FROM employee ee1, jobhistory jb1,
+employee ee2, jobhistory jb2
+WHERE ee1.surname = 'Robinson'
+AND ee1.forenames = 'Allan'
+AND ee1.empno = jb1.empno
+AND jb1.startdate = jb2.startdate
+AND jb2.empno <> jb1.empno
+AND ee2.empno = jb2.empno;
+
+
+
+
 ________________________________________________________________________
 
 
