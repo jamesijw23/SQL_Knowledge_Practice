@@ -415,6 +415,7 @@ empcourse: empno | courseno
 jobhistory: empno | position | startdate | enddate | salary
 employee:  empno | surname | forenames | dob | address | telno | depno 
 
+----------------------------------------------------------------------------------------------------
 ### Example 13: List the full names of any employee who started a new job on the same day as Allan Robinson.
 (Assumptions/Necessary Tables: )
 jobhistory: empno | position | startdate | enddate | salary
@@ -442,6 +443,7 @@ AND ee1.empno = jb1.empno
 AND jb1.startdate = jb2.startdate
 AND jb2.empno <> jb1.empno
 AND ee2.empno = jb2.empno;
+----------------------------------------------------------------------------------------------------
 
 
 
@@ -449,24 +451,81 @@ AND ee2.empno = jb2.empno;
 ________________________________________________________________________
 
 
+----------------------------------------------------------------------------------------------------
 ### Example 14: List all employees by their full names with their positions who are in the same department as Brian 
 Murphy and are older than him. 
 (Assumptions/Necessary Tables: )
+jobhistory: empno | position | startdate | enddate | salary
+employee:  empno | surname | forenames | dob | address | telno | depno 
 (Variables & Tables: )
+jobhistory     --> (empno, startdate,enddate)  Brian Murphy jobhistory table
+employee       --> (empno, surname, forenames, depno) Brian Murphy employee table
+employee       --> (empno, surname, forenames, depno) Everyone else employee table
 (Actions/Process: )
+- 1st employee table to have only Brian Murphy information
+- 2nd employee table to have the same depno as the 1st employee table
+- Make sure empno are not same from 1st and 2nd employee table
+- Make sure dob of 2nd employee table is less than dob from 1st table
+- Match empno from 2nd employee table to the jobhistory
+- obtain all current workers enddate is null
+- select distinct forenames
+- select surnames
+- select positions
 (Clauses: )
+SELECT DISTINCT(ee2.surname),ee2.forenames, jb.position
+FROM employee ee1, employee ee2, jobhistory jb
+WHERE ee1.forenames LIKE 'Brian%' 
+AND   ee1.surname = 'Murphy'
+AND ee2.depno = ee1.depno
+AND ee2.empno != ee1.empno
+AND jb.empno = ee2.empno
+AND ee2.dob <= ee1.dob
+AND jb.enddate IS NULL;
+----------------------------------------------------------------------------------------------------
+
+
 ________________________________________________________________________
 
 
 ### Example 15: List all employees by their full names who currently have the same salary as Claire MacCallan, 
 and order them alphabetically by surname. 
 (Assumptions/Necessary Tables: )
+jobhistory: empno | position | startdate | enddate | salary
+employee:  empno | surname | forenames | dob | address | telno | depno 
 (Variables & Tables: )
+jobhistory     --> (empno, salary)  Brian Murphy jobhistory table
+employee       --> (empno, surname, forenames, depno) Brian Murphy employee table
+jobhistory     --> (empno, salary)  Everyone else jobhistory table
+employee       --> (empno, surname, forenames, depno) Everyone else  employee table
+
 (Actions/Process: )
+- make the 1st employee table be Claire MacCallan
+- join 1st employee table with 1st jobhistory table using empno
+- join 2nd employee table with 2nd jobhistory table using empno
+- join 2nd tables of employee/jobhistory to 1st jobhistorytable using salary
+- make sure empno of 2nd tables of employee/jobhistory to 1st jobhistorytable does not have same empno
+- obtain all current workers enddate is null
+- order by surname from 2nd employee table
+- select distinct surname
+- select forenames
 (Clauses: )
+SELECT DISTINCT(ee2.surname),ee2.forenames
+FROM employee ee1, jobhistory jh1, employee ee2, jobhistory jh2  
+WHERE ee1.surname = 'MacCallan' 
+AND ee1.forenames LIKE 'Claire%'
+AND ee1.empno = jh1.empno
+AND ee2.empno = jh2.empno
+AND jh1.salary = jh2.salary
+AND jh1.empno != jh2.empno
+AND jh2.enddate IS NULL
+ORDER BY  ee2.surname;
 ________________________________________________________________________
 
-
+course: courseno | cname | cdate	
+department: depno | dname | location | head
+empcourse: empno | courseno	
+jobhistory: empno | position | startdate | enddate | salary
+employee:  empno | surname | forenames | dob | address | telno | depno 
 ### Example 16: Convert the answer to question 15 to COUNT the occurences.
 (Assumptions/Necessary Tables: )
 (Variables & Tables: )
