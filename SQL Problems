@@ -51,6 +51,9 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT COUNT(*)
+FROM jobhistory
+WHERE position LIKE 'Analyst Programmer'
 ________________________________________________________________________
 
 
@@ -60,6 +63,9 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT AVG(salary)
+FROM jobhistory
+WHERE position LIKE '%Accountant%';
 ________________________________________________________________________
 
 
@@ -69,6 +75,9 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT COUNT(*)
+FROM jobhistory
+WHERE empno = 22;
 ________________________________________________________________________
 
 
@@ -78,6 +87,9 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT COUNT(*)
+FROM employee
+WHERE depno = 2;
 ________________________________________________________________________
 
 
@@ -87,6 +99,9 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT empno, position
+FROM jobhistory
+WHERE position LIKE '%Engineer%';
 ________________________________________________________________________
 
 
@@ -96,6 +111,9 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT empno
+FROM jobhistory
+WHERE startdate BETWEEN '01-01-1984' AND '12-01-1984'
 ________________________________________________________________________
 
 
@@ -105,6 +123,10 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT MIN(salary)
+FROM jobhistory
+WHERE enddate IS NULL;
+
 ________________________________________________________________________
 
 
@@ -114,6 +136,9 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT surname
+FROM employee
+WHERE address LIKE '%Edinburgh%'
 ________________________________________________________________________
 
 
@@ -123,15 +148,21 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT surname
+FROM employee 
+WHERE surname NOT LIKE '%e%' OR surname NOT LIKE '%E%'
 ________________________________________________________________________
 
 
-### Example 14: Count the number of employee who has a forename starting with M or A.
+### Example 14: Count the number of employee who has a forename starting with M or A. (EASY)
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT COUNT(*)
+FROM employee
+WHERE fornames LIKE 'M%' OR fornames LIKE 'A%';
 ________________________________________________________________________
 
 
