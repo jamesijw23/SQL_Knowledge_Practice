@@ -113,7 +113,7 @@ ________________________________________________________________________
 (Clauses: )
 SELECT empno
 FROM jobhistory
-WHERE startdate BETWEEN '01-01-1984' AND '12-01-1984'
+WHERE startdate BETWEEN '01-Jan-1984' AND '31-Dec-1984';
 ________________________________________________________________________
 
 
@@ -138,7 +138,7 @@ ________________________________________________________________________
 (Clauses: )
 SELECT surname
 FROM employee
-WHERE address LIKE '%Edinburgh%'
+WHERE address LIKE '%Edinburgh%';
 ________________________________________________________________________
 
 
@@ -150,7 +150,7 @@ ________________________________________________________________________
 (Clauses: )
 SELECT surname
 FROM employee 
-WHERE surname NOT LIKE '%e%' OR surname NOT LIKE '%E%'
+WHERE surname NOT LIKE '%e%' OR surname NOT LIKE '%E%';
 ________________________________________________________________________
 
 
@@ -172,6 +172,9 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT empno, telno
+FROM employee
+ORDER BY telno DESC;
 ________________________________________________________________________
 
 
@@ -181,6 +184,9 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT DISTINCT(position)
+FROM jobhistory
+WHERE enddate IS NULL;
 ________________________________________________________________________
 
 
@@ -190,6 +196,9 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT DISTINCT(salary)
+FROM jobhistory
+WHERE enddate IS NULL;
 ________________________________________________________________________
 
 
@@ -440,11 +449,7 @@ WHERE  ee1.surname = 'Roberts'
 
 
 
-course: courseno | cname | cdate	
-department: depno | dname | location | head
-empcourse: empno | courseno	
-jobhistory: empno | position | startdate | enddate | salary
-employee:  empno | surname | forenames | dob | address | telno | depno 
+
 
 ----------------------------------------------------------------------------------------------------
 ### Example 13: List the full names of any employee who started a new job on the same day as Allan Robinson.
@@ -479,7 +484,7 @@ AND ee2.empno = jb2.empno;
 
 
 
-________________________________________________________________________
+
 
 
 ----------------------------------------------------------------------------------------------------
@@ -515,20 +520,17 @@ AND jb.enddate IS NULL;
 ----------------------------------------------------------------------------------------------------
 
 
-________________________________________________________________________
-
-
+----------------------------------------------------------------------------------------------------
 ### Example 15: List all employees by their full names who currently have the same salary as Claire MacCallan, 
 and order them alphabetically by surname. 
 (Assumptions/Necessary Tables: )
 jobhistory: empno | position | startdate | enddate | salary
 employee:  empno | surname | forenames | dob | address | telno | depno 
 (Variables & Tables: )
-jobhistory     --> (empno, salary)  Brian Murphy jobhistory table
-employee       --> (empno, surname, forenames, depno) Brian Murphy employee table
+jobhistory     --> (empno, salary) Claire MacCallan jobhistory table
+employee       --> (empno, surname, forenames, depno) Claire MacCallan employee table
 jobhistory     --> (empno, salary)  Everyone else jobhistory table
 employee       --> (empno, surname, forenames, depno) Everyone else  employee table
-
 (Actions/Process: )
 - make the 1st employee table be Claire MacCallan
 - join 1st employee table with 1st jobhistory table using empno
@@ -550,23 +552,39 @@ AND jh1.salary = jh2.salary
 AND jh1.empno != jh2.empno
 AND jh2.enddate IS NULL
 ORDER BY  ee2.surname;
-________________________________________________________________________
+----------------------------------------------------------------------------------------------------
 
-course: courseno | cname | cdate	
-department: depno | dname | location | head
-empcourse: empno | courseno	
-jobhistory: empno | position | startdate | enddate | salary
-employee:  empno | surname | forenames | dob | address | telno | depno 
+
+
+----------------------------------------------------------------------------------------------------
 ### Example 16: Convert the answer to question 15 to COUNT the occurences.
 (Assumptions/Necessary Tables: )
+jobhistory: empno | position | startdate | enddate | salary
+employee:  empno | surname | forenames | dob | address | telno | depno 
 (Variables & Tables: )
+jobhistory     --> (empno, salary) Claire MacCallan jobhistory table
+employee       --> (empno, surname, forenames, depno) Claire MacCallan employee table
+jobhistory     --> (empno, salary)  Everyone else jobhistory table
+employee       --> (empno, surname, forenames, depno) Everyone else  employee table
 (Actions/Process: )
+- make the 1st employee table be Claire MacCallan
+- join 1st employee table with 1st jobhistory table using empno
+- join 2nd employee table with 2nd jobhistory table using empno
+- join 2nd tables of employee/jobhistory to 1st jobhistorytable using salary
+- make sure empno of 2nd tables of employee/jobhistory to 1st jobhistorytable does not have same empno
+- obtain all current workers enddate is null
+- select count size of table
 (Clauses: )
-________________________________________________________________________
-
-
-
-
+SELECT COUNT(*)
+FROM employee ee1, jobhistory jh1, employee ee2, jobhistory jh2  
+WHERE ee1.surname = 'MacCallan' 
+AND ee1.forenames LIKE 'Claire%'
+AND ee1.empno = jh1.empno
+AND ee2.empno = jh2.empno
+AND jh1.salary = jh2.salary
+AND jh1.empno != jh2.empno
+AND jh2.enddate IS NULL;
+----------------------------------------------------------------------------------------------------
 
 
 
@@ -580,105 +598,128 @@ ________________________________________________________________________
 
 # Where: (DB Tutorial 4 --> Subselect)
 ### Example 1: Use subqueries to list the surname of employees who have been on a course with employee 19.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 ### Example 2: List the surname of those who earn less than the average salary of all staff. 
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 ### Example 3: List the surname of employees who earn more than the average salary of employees who have jobs connected with Accounts.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
+
+course: courseno | cname | cdate	
+department: depno | dname | location | head
+empcourse: empno | courseno	
+jobhistory: empno | position | startdate | enddate | salary
+employee:   empno | surname | forenames | dob | address | telno | depno 
+
 ### Example 4: List the surname and forenames of employees who earn more than any employee connected to Admin.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
+jobhistory: empno | position | startdate | enddate | salary
+employee:   empno | surname | forenames | dob | address | telno | depno 
 (Variables & Tables: )
-(Process: )
+jobhistory     --> (empno, salary)  maximum amount made by any employee in admin
+employee       --> (empno, surname, forenames) Everyone else  employee table
+(Actions/Process: )
+- find the maximum salary for admin employees current workers (jobhistory table)
+- find the empno that has more than above salary (above is a subselect) current workers (jobhistory table)
+- join to employee table to jobhistory table based on empno
+- select distinct forenames
+- select surname
 (Clauses: )
+SELECT DISTINCT(ee.surname), ee.forenames
+FROM jobhistory jhadmin, jobhistory jhrest, employee ee
+WHERE jhadmin.position LIKE '%Admin%'
+AND jhrest.enddate IS NULL
+AND jhadmin.enddate IS NULL
+AND jhrest.salary > jhadmin.salary
+AND ee.empno = jhrest.empno;
+
+
+SELECT DISTINCT(ee.forenames), ee.surname
+FROM jobhistory jh, employee ee
+WHERE jh.salary > (SELECT MAX(salary)
+FROM jobhistory 
+WHERE position LIKE '%Admin%' 
+AND enddate IS NULL)
+AND jh.enddate IS NULL
+AND jh.empno = ee.empno;
 ________________________________________________________________________
+
+
+
+
 ### Example 5: List the surname and position of employees earning less than everyone in department 3.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 ### Example 6: List the surname of employees who has been on a course which employee number 14 has not been on.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 ### Example 7: List the surname of employees who are currently doing a unique job.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 ### Example 8: List the surname of employees who have done or are doing any job which employee 23 has done or is doing.
 Include the surname of employee 23.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 ### Example 9: List the course names of courses which employees from department number 2 have been on.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 ### Example 10: List the employee surname, forenames, and course for each time an employee attended a course at which no other
 colleague was present.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 ### Example 11: List the full names and positions of employees who have been on any of the courses that Robert Roberts has been on.
 Use subselect.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 ### Example 12: List the employee numbers and telephone numbers of all staff in department 3 or 1. Make use of UNION.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 ### Example 13: List the employee number of the head of department 4 and the employee numbers of all staff in department 4 in a
 single table using union.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 ### Example 14: List the full name of everyone living in Edinburgh or who is in accounts. Perform this task using UNION.
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 ### Example 15:  Write a query which shows which empno has been to the most courses. List the empno and the number of courses that
@@ -686,19 +727,17 @@ person has been on. There may be multiple employees with the biggest count.
 
 You should make use of HAVING. For instance, to show the depno and the number of employees in that depno for only
 the biggest department you could do: 
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 ### Example 16:  Write a query which shows which employee has had the most jobs with the company. 
 There may be multiple employees with the biggest job count. Show the surname,forename, and the job count in your answer. 
 You will have to GROUP BY two columns (e.g. GROUP BY x,y). 
-(Assumptions: )
-(Actions: )
+(Assumptions/Necessary Tables: )
 (Variables & Tables: )
-(Process: )
+(Actions/Process: )
 (Clauses: )
 ________________________________________________________________________
 
