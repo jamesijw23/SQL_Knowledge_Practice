@@ -14,6 +14,9 @@ employee: empno | surname | forenames | dob | address | telno | depno
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT empno, position, salary
+FROM jobhistory
+WHERE position LIKE '%Analyst%';
 ________________________________________________________________________
 
 
@@ -23,6 +26,9 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT empno, position, salary
+FROM jobhistory
+WHERE position LIKE '%Analyst programmer%';
 ________________________________________________________________________
 
 
@@ -33,6 +39,9 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT DISTINCT(forenames), surnames
+FROM employee
+WHERE depno = 3;
 ________________________________________________________________________
 
 
@@ -42,6 +51,9 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT courseno, empno
+FROM course
+WEHRE empno = 7 OR empno = 14;
 ________________________________________________________________________
 
 
