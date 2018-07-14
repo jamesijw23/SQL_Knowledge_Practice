@@ -221,7 +221,11 @@ ________________________________________________________________________
 
 
 
-
+course: courseno | cname | cdate	
+department: depno | dname | location | head
+empcourse: empno | courseno	
+jobhistory: empno | position | startdate | enddate | salary
+employee: empno | surname | forenames | dob | address | telno | depno 
 
 
 # Where: (DB Tutorial 3 --> MultiTable JOINS)
@@ -232,6 +236,13 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT DISTINCT(ee.forenames), ee.surname
+FROM employee ee, empcourse ec, course co
+WHERE ee.empno = ec.empno
+AND ec.courseno = co.courseno
+AND co.cname LIKE '%Accounting%';
+
+ 
 ________________________________________________________________________
 
 
@@ -253,12 +264,23 @@ ________________________________________________________________________
 ________________________________________________________________________
 
 
+
+course: courseno | cname | cdate	
+department: depno | dname | location | head
+empcourse: empno | courseno	
+jobhistory: empno | position | startdate | enddate | salary
+employee: empno | surname | forenames | dob | address | telno | depno 
+
 ### Example 4: List in alphabetical order of department name then surname and then forename, the current position of all employees.
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT DISTINCT(ee.forenames), ee.surnames, jh.position
+FROM employee ee, department dd, jobhistory jh
+WHERE ee.depno = dd.depno 
+ORDER BY dd.dname;
 ________________________________________________________________________
 
 
@@ -268,6 +290,10 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT ec.courseno, COUNT(*)
+FROM employee ee, empcourse ec
+WHERE ee.empno = ec.empno
+GROUP BY ec.courseno;
 ________________________________________________________________________
 
 
@@ -277,6 +303,10 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT COUNT(*)
+FROM employee
+WHERE depno = 3 OR depno = 5
+GROUP BY depno;
 ________________________________________________________________________
 
 
