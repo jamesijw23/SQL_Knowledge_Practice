@@ -251,16 +251,23 @@ ________________________________________________________________________
 (Actions: )
 (Variables & Tables: )
 (Process: )
-(Clauses: )
+(Clauses: ) 
+SELECT COUNT(DISTINCT(empno))
+FROM empcourse;
 ________________________________________________________________________
 
 
-### Example 3:List all employees by surname and forenames who have been on a course in 1988. 
+### Example 3: List all employees by surname and forenames who have been on a course in 1988. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT DISTINCT(ee.forenames), ee.surname
+FROM employee ee, course cc, empcourse ec
+WHERE ee.empno = ec.empno
+AND ec.courseno = cc.courseno
+AND cc.cdate BETWEEN '01-Jan-88' AND '31-Dec-88';
 ________________________________________________________________________
 
 
