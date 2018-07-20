@@ -1754,6 +1754,16 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+game: id | mdate |	stadium | team1 |	team2
+goal: matchid |	teamid |	player |	gtime
+eteam: id | teamname | coach
+
+SELECT goal.player
+FROM game
+INNER JOIN goal
+ON game.id = goal.matchid
+WHERE game.stadium = 'National Stadium, Warsaw';
+
 ________________________________________________________________________
 ### Example 8: The example query shows all goals scored in the Germany-Greece quarterfinal. 
 Instead show the name of all players who scored a goal against Germany.
@@ -1898,6 +1908,14 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+movie: id | title | yr | director | budget | gross
+actor: id | name
+casting: movieid | actorid | ord
+
+SELECT id
+FROM movie
+WHERE title = 'Casablanca';
+
 ________________________________________________________________________
 ### Example 6: Obtain the cast list for 'Casablanca'. Use movieid=11768, (or whatever value you got from the previous question) 
 (Assumptions: )
@@ -1905,6 +1923,15 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+movie: id | title | yr | director | budget | gross
+actor: id | name
+casting: movieid | actorid | ord
+
+SELECT a.name
+FROM movie m, casting c, actor a
+WHERE m.title = 'Casablanca'
+AND c.movieid = m.id
+AND c.actorid = a.id;
 ________________________________________________________________________
 ### Example 7: Obtain the cast list for the film 'Alien' 
 (Assumptions: )
