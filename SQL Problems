@@ -1840,6 +1840,15 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+game: id | mdate |	stadium | team1 |	team2
+goal: matchid |	teamid |	player |	gtime
+eteam: id | teamname | coach
+SELECT goal.teamid, game.mdate
+FROM game
+INNER JOIN goal
+ON game.id = goal.matchid
+WHERE game.mdate = '9 June 2012'
+
 ________________________________________________________________________
 ### Example 18: Show the player and their team for those who have scored against Poland(POL) in National Stadium, Warsaw. 
 (Assumptions: )
@@ -2292,6 +2301,15 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+stops id | name
+route num | company | pos | stop
+
+SELECT DISTINCT a.company, a.num
+FROM route a
+JOIN route b ON a.num = b.num
+WHERE a.stop = 115
+AND b.stop = 137;
+
 ________________________________________________________________________
 ### Example 8: Give a list of the services which connect the stops 'Craiglockhart' and 'Tollcross' 
 (Assumptions: )
@@ -2299,6 +2317,18 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+stops id | name
+route num | company | pos | stop
+
+SELECT DISTINCT a.company, a.num
+FROM route a, route b, stops sC, stops sT 
+WHERE sC.name = 'Craiglockhart'
+AND sT.name = 'Tollcross'
+AND a.stop = sC.id
+AND b.stop = sT.id
+AND a.num = b.num;
+
+
 ________________________________________________________________________
 ### Example 9: Give a distinct list of the stops which may be reached from 'Craiglockhart' by taking one bus, including 'Craiglockhart' itself, 
 offered by the LRT company. Include the company and bus no. of the relevant services. 
