@@ -1772,6 +1772,14 @@ Instead show the name of all players who scored a goal against Germany.
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+
+SELECT player
+FROM game ga
+INNER JOIN goal go
+ON ga.id = go.matchid
+WHERE ga.team1 = "GER" 
+OR ga.team2 =  "GER"
+AND go.teamid !="GER";
 ________________________________________________________________________
 ### Example 9: Show teamname and the total number of goals scored.
 (Assumptions: )
@@ -1779,6 +1787,17 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+game: id | mdate |	stadium | team1 |	team2
+goal: matchid |	teamid |	player |	gtime
+eteam: id | teamname | coach
+
+SELECT e.teamname, COUNT(*)
+FROM eteam e
+INNER JOIN goal g
+ON e.id = g.teamid
+GROUP BY e.teamname
+
+
 ________________________________________________________________________
 ### Example 10: Show the stadium and the number of goals scored in each stadium.
 (Assumptions: )
@@ -1948,6 +1967,15 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+
+SELECT name
+FROM actor
+WHERE id IN (SELECT c.actorid
+FROM movie m
+INNER JOIN casting c
+ON m.id = c.movieid
+WHERE m.title = 'Alien');
+
 ________________________________________________________________________
 ### Example 8: List the films in which 'Harrison Ford' has appeared 
 (Assumptions: )
@@ -1955,6 +1983,18 @@ ________________________________________________________________________
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+movie: id | title | yr | director | budget | gross
+actor: id | name
+casting: movieid | actorid | ord
+
+
+SELECT m.title
+FROM casting c, actor a, movie m
+WHERE a.name = 'Harrison Ford'
+AND a.id = c.actorid
+AND c.movieid = m.id;
+
+
 ________________________________________________________________________
 ### Example 9: List the films where 'Harrison Ford' has appeared - but not in the starring role. 
 [Note: the ord field of casting gives the position of the actor. If ord=1 then this actor is in the starring role] 
@@ -2278,13 +2318,22 @@ to these two routes.
 (Process: )
 (Clauses: )
 ________________________________________________________________________
-### Example 5: Execute the self join shown and observe that b.stop gives all the places you can get to from Craiglockhart, without changing routes. 
+### Example 5: Execute the self join shown and observe that b.stop gives all the places you 
+can get to from Craiglockhart, without changing routes. 
 Change the query so that it shows the services from Craiglockhart to London Road. 
 (Assumptions: )
 (Actions: )
 (Variables & Tables: )
 (Process: )
 (Clauses: )
+SELECT a.company, a.num, a.stop, b.stop
+FROM route a, stops s,route b 
+WHERE a.company=b.company 
+AND a.num=b.num
+AND a.stop=53
+AND s.name = 'London Road'
+AND b.stop = s.id;
+
 ________________________________________________________________________
 ### Example 6: The query shown is similar to the previous one, however by joining two copies of the stops table we can refer to 
 stops by name rather than by number. Change the query so that the services between 'Craiglockhart' and 'London Road' are shown. 
